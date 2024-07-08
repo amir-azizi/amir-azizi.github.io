@@ -1,8 +1,8 @@
 <!doctype html>
 
 <html>
-    <base href="/app/">
     <head>
+        <base href="/app/">
         <!-- Recommended meta tags -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -44,12 +44,9 @@
         </nav>
 
         <section class="pyscript">
-	    <py-config>
-                    interpreter = "/public/pyodide/pyodide.mjs"
-            </py-config>
             Hello world! <br />
             This is the current date and time, as computed by Python:
-            <script type="py">
+	    <script type="py" config="{interpreter = "/public/pyodide/pyodide.mjs"}">
                 from pyscript import display
                 display("We're here")
             </script>
