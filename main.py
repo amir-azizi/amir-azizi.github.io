@@ -37,7 +37,7 @@ def click_handler(event):
     report='Date: '+str(temp.DateTime.iloc[0])+', EC: '+str(temp.aquaEC.iloc[0])+', CO: '+str(temp.CO.iloc[0])+', T: '+str(temp.Temperature.iloc[0])+', RH: '+str(temp.RH.iloc[0])+', Lux:'+str(temp.Luminosity.iloc[0])
 
     element=document.getElementById("parrot1")
-    element.innerHTML = warnings_data.getvalue()
+    element.innerHTML = warnings_data
     element2=document.getElementById("parrot2")
     element2.innerHTML = report
 #select = pn.widgets.Select(name='انتخاب حسگر', options=[x for x in names_data.Name]).servable(target='sensor-select')
