@@ -4,10 +4,11 @@ from pyodide.http import open_url
 #import hvplot.pandas
 #import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 #import panel as pn
 from pyscript import display
 #from js import documenti
-from pyscript import when, document
+from pyscript import when, document, window
 
 URL_sensorNames = 'https://docs.google.com/spreadsheets/d/1p1_QuuhkRShcVdWlMDurQWs-VLerXEUU9bXS3dLEofQ/gviz/tq?tqx=out:csv;outFileName:data&sheet=sensorNames&range=A:B'
 URL_CSV = 'https://docs.google.com/spreadsheets/d/1p1_QuuhkRShcVdWlMDurQWs-VLerXEUU9bXS3dLEofQ/gviz/tq?tqx=out:csv;outFileName:data&sheet=dataLogs&range=A:J'
@@ -38,3 +39,30 @@ def click_handler(event):
     element2=document.getElementById("parrot2")
     element2.innerHTML = report
 #select = pn.widgets.Select(name='انتخاب حسگر', options=[x for x in names_data.Name]).servable(target='sensor-select')
+
+from_date=document.getElementById("start_date")
+end_date=document.getElementById("end_date")
+
+@when("click", "#fetch")
+def handle_click(event):
+#    display(from_date.value, target="returnDates")
+#    element.write(from_date.value)
+    if from_date.value=="2024-01-01" and end_date.value=="2024-01-01":
+        window.alert("لطفا ابتدا تاریخ ابتدا و انتهای بازه را تعیین کنید")
+    else:
+        display("Getting data...", target="plotStatus")
+        orig_data=pd.read_csv(open_url(URL_CSV))
+        orig_data=orig_data[orig_data['Time'].notna()]
+        selected_ID=names_data[names_data.Name==sensor_select_parent.value].ID.iloc[0].item()
+        plt_data=orig_data[orig_data.ID==selected_ID]
+        plt_data=plt_data[plt_data.Date>=from_date.value]
+        plt_data=plt_data[plt_data.Date<=end_date.value]
+        plt_data['DateTime']=pd.to_datetime(plt_data['Date']+' '+plt_data['Time'], format='mixed')
+        plt_data=plt_data.drop(['Date', 'Time'], axis=1)
+        if selected_ID<2000:
+            fig, axes = plt.subplots(nrows=3, ncols=1, sharex=True)
+            plt_data.plot(x='DateTime', y='Temperature [C]', ax=axes[0])
+            plt_data.plot(x='DateTime', y='RH [%]', ax=axes[1])
+            plt_data.plot(x='DateTime', y='Luminosity [lux]', ax=axes[2])
+            display(fig, target="plotResults")
+
