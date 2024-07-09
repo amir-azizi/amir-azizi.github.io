@@ -12,11 +12,13 @@ from pyscript import when, document, window
 
 URL_sensorNames = 'https://docs.google.com/spreadsheets/d/1p1_QuuhkRShcVdWlMDurQWs-VLerXEUU9bXS3dLEofQ/gviz/tq?tqx=out:csv;outFileName:data&sheet=sensorNames&range=A:B'
 URL_CSV = 'https://docs.google.com/spreadsheets/d/1p1_QuuhkRShcVdWlMDurQWs-VLerXEUU9bXS3dLEofQ/gviz/tq?tqx=out:csv;outFileName:data&sheet=dataLogs&range=A:J'
-URL_warn = 'https://docs.google.com/spreadsheets/d/1p1_QuuhkRShcVdWlMDurQWs-VLerXEUU9bXS3dLEofQ/gviz/tq?tqx=out:csv;outFileName:data&sheet=warnings&range=A2'
+URL_warn = 'https://docs.google.com/spreadsheets/d/1p1_QuuhkRShcVdWlMDurQWs-VLerXEUU9bXS3dLEofQ/gviz/tq?tqx=out:csv;outFileName:data&sheet=warnings&range=A1'
 URL_lastEntry = "https://docs.google.com/spreadsheets/d/1p1_QuuhkRShcVdWlMDurQWs-VLerXEUU9bXS3dLEofQ/gviz/tq?tqx=out:csv;outFileName:data&sheet=last_entry&range=A:K"
 
 names_data=pd.read_csv(open_url(URL_sensorNames))
-warnings_data=open_url(URL_warn)
+warnings=pd.read_csv(open_url(URL_warn))
+warnings2=[int(x) for x in warnings.columns[0].split(',') if x!=' ']
+warnings_data="لیست حسگرهای غیرفعال: "+", ".join(list(names_data[names_data.ID.isin(warnings2)].Name))
 last_entry=pd.read_csv(open_url(URL_lastEntry))
 
 sensor_select_parent=document.querySelector('#sensor-select')
