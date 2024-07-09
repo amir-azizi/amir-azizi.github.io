@@ -57,7 +57,7 @@ def handle_click(event):
         plt_data['DateTime']=pd.to_datetime(plt_data['Date']+' '+plt_data['Time'], format='mixed')
         plt_data=plt_data.drop(['Date', 'Time'], axis=1)
         plt_data=plt_data[plt_data.DateTime>=pd.to_datetime(from_date.value)]
-        plt_data=plt_data[plt_data.Date<=pd.to_datetime(end_date.value)]
+        plt_data=plt_data[plt_data.DateTime<=pd.to_datetime(end_date.value)]
         display(str(orig_data.shape)+" "+from_date.value+" "+str(plt_data.shape), target="plotStatus")
         if selected_ID<2000:
             fig, axes = plt.subplots(nrows=3, ncols=1, sharex=True)
