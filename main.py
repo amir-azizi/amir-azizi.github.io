@@ -18,7 +18,7 @@ URL_lastEntry = "https://docs.google.com/spreadsheets/d/1p1_QuuhkRShcVdWlMDurQWs
 names_data=pd.read_csv(open_url(URL_sensorNames))
 warnings=pd.read_csv(open_url(URL_warn))
 warnings2=[int(x) for x in warnings.columns[0].split(',') if x!=' ']
-warnings_data="لیست حسگرهای غیرفعال: "+", ".join(list(names_data[names_data.ID.isin(warnings2)].Name))
+warnings_data=", ".join(list(names_data[names_data.ID.isin(warnings2)].Name))
 last_entry=pd.read_csv(open_url(URL_lastEntry))
 
 sensor_select_parent=document.querySelector('#sensor-select')
