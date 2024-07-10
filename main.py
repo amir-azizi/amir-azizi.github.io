@@ -51,6 +51,8 @@ def handle_click(event):
 #    element.write(from_date.value)
     if from_date.value=="2024-01-01" and end_date.value=="2024-01-01":
         window.alert("لطفا ابتدا تاریخ ابتدا و انتهای بازه را تعیین کنید")
+    elif pd.to_datetime(from_date)>pd.to_datetime(end_date):
+        window.alert("تاریخ انتهای بازه باید بزرگتر از تاریخ ابتدا باشد")
     else:
         orig_data=pd.read_csv(open_url(URL_CSV))
         orig_data=orig_data[orig_data['Time'].notna()]
@@ -60,11 +62,14 @@ def handle_click(event):
         plt_data=plt_data.drop(['Date', 'Time'], axis=1)
         plt_data=plt_data[plt_data.DateTime>=pd.to_datetime(from_date.value)]
         plt_data=plt_data[plt_data.DateTime<=pd.to_datetime(end_date.value)]
-        display(str(orig_data.shape)+" "+from_date.value+" "+str(plt_data.shape), target="plotStatus")
         if selected_ID<2000:
             fig, axes = plt.subplots(nrows=3, ncols=1, sharex=True)
             plt_data.plot(x='DateTime', y='Temperature [C]', ax=axes[0])
             plt_data.plot(x='DateTime', y='RH [%]', ax=axes[1])
             plt_data.plot(x='DateTime', y='Luminosity [lux]', ax=axes[2])
+            display(fig, target="plotResults")
+        elif selected_ID>=4000:
+            fig, axes = plt.subplots(nrows=1, ncols=1, sharex=True)
+            plt_data.plot(x='DateTime', y='CO', ax=axes[0])
             display(fig, target="plotResults")
 
