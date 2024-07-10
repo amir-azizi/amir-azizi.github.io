@@ -72,4 +72,8 @@ def handle_click(event):
             fig, axes = plt.subplots(nrows=1, ncols=1, sharex=True)
             plt_data.plot(x='DateTime', y='CO', ax=axes[0])
             display(fig, target="plotResults")
+        else:
+            fig, axes = plt.subplots(nrows=1, ncols=1, sharex=True)
+            plt_data.plot(x='DateTime', y='aquaEC', ax=axes[0])
+            display(fig, target="plotResults")
 
