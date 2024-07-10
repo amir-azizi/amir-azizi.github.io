@@ -47,11 +47,10 @@ end_date=document.getElementById("end_date")
 
 @when("click", "#fetch")
 def handle_click(event):
-#    display(from_date.value, target="returnDates")
 #    element.write(from_date.value)
     if from_date.value=="2024-01-01" and end_date.value=="2024-01-01":
         window.alert("لطفا ابتدا تاریخ ابتدا و انتهای بازه را تعیین کنید")
-    elif pd.to_datetime(from_date)>pd.to_datetime(end_date):
+    elif pd.to_datetime(from_date.value)>pd.to_datetime(end_date.value):
         window.alert("تاریخ انتهای بازه باید بزرگتر از تاریخ ابتدا باشد")
     else:
         orig_data=pd.read_csv(open_url(URL_CSV))
