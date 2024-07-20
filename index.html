@@ -16,19 +16,13 @@
     addEventListener('py:ready', () => loading.close());
     loading.showModal();
   </script>
-  <!-- bokeh scripts -->
-  <script type="text/javascript" src="/pyscript/bokeh-3.4.1.min.js"></script>
-  <script type="text/javascript" src="/pyscript/bokeh-gl-3.4.1.min.js"></script>
-  <script type="text/javascript">
-    Bokeh.set_log_level("info");
-  </script>
 </head>
-<body>
+<body style="background-color:#F9EACD;">
   <dialog id="loading">
     <h1>Loading...</h1>
   </dialog>
   <py-config>
-    packages = ["pandas", "bokeh", "cryptography", "xyzservices"]
+    packages = ["cryptography"]
   </py-config>
   <h1 style="text-align: center">
     مرکز کنترل iPlant
@@ -48,41 +42,7 @@
     <br />
     <br />
   </div>
-  <div style="text-align: center">
-    <label for="sensor-select">انتخاب حسگر</label>
-    <select id="sensor-select">
-      <option value="">--لطفا حسگر مورد نظر را انتخاب کنید--</option>
-    </select>
-    <button id="update">به‌روز رسانی</button>
-  </div>
-  <div style="background: pink; color: red; text-align: center">
-    <h3>
-      اخطارها
-    </h3>
-    <p>لیست حسگرهای غیرفعال:</p>
-    <p id="parrot1">
-    </p>
-  </div>
-  <div style="background: cyan; color: blue; text-align: center">
-    <h3>
-      آخرین داده دریافتی:
-    </h3>
-    <p id="parrot2">
-    </p>
-  </div>
-
-  <div style="text-align: center">
-    <label for="start">نمایش داده‌ها از تاریخ</label>
-    <input type="date" id="start_date" name="تاریخ ابتدا" value="2024-01-01" min="2024-01-01" max="2025-07-08" />
-    <br>
-    <label for="end">نمایش داده‌ها تا تاریخ</label>
-    <input type="date" id="end_date" name="تاریخ انتها" value="2024-01-01" min="2024-01-01" max="2025-07-08" />
-    <br>
-    <button id="fetch">دریافت داده</button>
-    <br>
-    <div id="plotResults"></div>
-  </div>
-  <script type="py" src="./main.py"></script>
+  <script type="py" src="./credentials.py"></script>
   <script defer src="./pwa.js"></script>
 </body>
 </html>
