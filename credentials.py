@@ -27,11 +27,11 @@ def authenticate(event):
             page_ID=fernet.decrypt(encrypted_key).decode()
         except InvalidToken:
             page_ID=""
-        except ValueError:
+        except:
             page_ID=""
 #        if Can_access==-1 and pd.read_csv(open_url(base_url+page_ID+URL_login), header=None)[0].to_list()[0]==1:
         finally:
-            if len(page_ID)>10:
+            if len(page_ID)>1:
                 display("خوش آمدید", target="temp_check")
                 checkbox=document.getElementById("rememberMe")
                 if checkbox.checked:
