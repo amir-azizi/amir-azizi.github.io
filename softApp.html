@@ -3,7 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PRODUCTS</title>
+  <title>PAT</title>
+  <script type="module" src="/pyscript/core.js"></script>
+  <link rel="stylesheet" href="/pyscript/core.css">
+  <link rel="manifest" href="./manifest.json">
+  <!-- for splashscreen -->
+  <style>
+  #loading { outline: none; border: none; background: transparent }
+  </style>
+  <script type="module">
+    const loading = document.getElementById('loading');
+    addEventListener('py:ready', () => loading.close());
+    loading.showModal();
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
   body {
@@ -64,23 +76,38 @@
   </style>
 </head>
 <body style="background-color:#F9EACD;">
+  <dialog id="loading">
+    <h1>Loading...</h1>
+  </dialog>
+  <py-config>
+    packages = ["cryptography"]
+  </py-config>
   <div class="topnav" id="myTopnav">
     <a href="index.html">محصولات</a>
-    <a href="softApp.html">نرم افزار کنترل</a>
-    <a href="contact.html" class="active">تماس با ما</a>
+    <a href="softApp.html" class="active">نرم افزار کنترل</a>
+    <a href="contact.html">تماس با ما</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars"></i>
     </a>
   </div>
   <h1 style="text-align: center">
-    PrecisionAgroTech
+    مرکز کنترل iPlant
   </h1>
-  <h2 style="text-align: center">
-    Agricultral biotechnology research institute of Iran (ABRII), Karaj, Iran
-  </h2>
-  <h2 style="text-align: center">
-    Tel: +98 (0) 912 8415844
-  </h2>
+  <div style="text-align: center">
+    <label for="uname"><b>Username</b></label>
+    <br />
+    <input type="text" placeholder="گذرﻭﺍﮋه خوﺩ ﺭﺍ ﻭﺍﺭﺩ کنید" id="uname" required>
+    <br />
+    <button type="submit" id="login_submit">Login</button>
+    <br />
+    <label>
+      <input type="checkbox" checked=true name="remember" id="rememberMe"> مرا به‌خاطر بسپار
+    </label>
+    <div id="temp_check"></div>
+
+    <br />
+    <br />
+  </div>
   <script>
   function myFunction() {
     var x = document.getElementById("myTopnav");
@@ -91,5 +118,7 @@
     }
   }
   </script>
+  <script type="py" src="./credentials.py"></script>
+  <script defer src="./pwa.js"></script>
 </body>
 </html>
