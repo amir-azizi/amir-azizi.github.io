@@ -75,7 +75,7 @@
      outline: none;
      color:mediumseagreen;
      background-color: #fff;
-     padding: 15px 15px;
+     padding: 13px 15px;
      border-radius: 9px;
      position: fixed;
      top: 10px;
@@ -93,7 +93,7 @@
     padding: 50px 10px; /* Some padding */
     color: white;
     text-align: center; /* Centered text */
-    font-size: 90px; /* Big font size */
+    font-size: 20vw; /* Big font size */
     font-weight: bold;
     position: fixed; /* Fixed position - sit on top of the page */
     top: 0;
@@ -109,7 +109,7 @@
 </head>
 <body style="background-color:#ebebeb;">
   <div id="header"> مزرعه من</div>
-  <button class="active"><i class="fa-solid fa-bars" style="font-size:48px;"></i></button>
+  <button class="active"><i class="fa-solid fa-bars" style="font-size:5vw;"></i></button>
   <div id="mySidenav" class="sidenav">
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	  <br/>
@@ -136,7 +136,7 @@
 	  <br/>
           <a href="#"><i class="fa fa-fw fa-arrow-circle-right"></i> خروج از حساب کاربری</a>
   </div>
-  <div style="margin-top:200px;padding:15px 15px 500px">
+  <div style="margin-top:20vw;padding:1vw 1vw 20vw">
 	  <div class="yellow-div">
 		  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 	  </div>
@@ -154,9 +154,9 @@
 
   function scrollFunction() {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      document.getElementById("header").style.fontSize = "30px";
+      document.getElementById("header").style.fontSize = "5vw";
     } else {
-      document.getElementById("header").style.fontSize = "90px";
+      document.getElementById("header").style.fontSize = "12vw";
     }
   }
   const btn = document.querySelector('button');
