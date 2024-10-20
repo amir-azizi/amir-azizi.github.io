@@ -23,11 +23,6 @@
      list-style: none;
    }
 
-   button{
-     border: none;
-     outline: none;
-   }
-
    body{font-family: 'Rubik', sans-serif;}
 
    /* The side navigation menu */
@@ -64,7 +59,7 @@
 	   position: absolute;
 	   top: 0;
 	   right: 25px;
-	   font-size: 36px;
+	   font-size: 48px;
 	   margin-left: 50px;
    }
 
@@ -76,12 +71,12 @@
 
    button{
      cursor: pointer;
-     border: 1px solid mediumseagreen;
+     border: 2px solid mediumseagreen;
+     outline: none;
      color:mediumseagreen;
      background-color: #fff;
-     padding: 3px 5px;
-     border-radius: 3px;
-
+     padding: 15px 15px;
+     border-radius: 9px;
      position: fixed;
      top: 10px;
      right: 10px;
@@ -114,19 +109,31 @@
 </head>
 <body style="background-color:#ebebeb;">
   <div id="header"> مزرعه من</div>
-  <button class="active"><i class="fa-solid fa-bars"></i></button>
+  <button class="active"><i class="fa-solid fa-bars" style="font-size:48px;"></i></button>
   <div id="mySidenav" class="sidenav">
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <br/>
 	  <a href="#"><h3> نام کاربر</h3></a>
+	  <br/>
+	  <br/>
           <a href="#"><i class="fa fa-fw fa-home"></i> مزرعه من</a>
+	  <br/>
           <a href="#"><i class="fa fa-fw fa-shopping-cart"></i> سفارشات من</a>
+	  <br/>
           <a href="#"><i class="fa fa-fw fa-tty"></i> پیام‌های من</a>
+	  <br/>
           <a href="#"><i class="fa fa-fw fa-credit-card"></i> مدیریت مالی</a>
+	  <br/>
           <a href="#"><i class="fa fa-fw fa-bug"></i> نتایج بیماری‌های هوشمند</a>
+	  <br/>
           <a href="#"><i class="fa fa-fw fa-hand-paper"></i> قوانین و مقررات</a>
+	  <br/>
           <a href="#"><i class="fa fa-fw fa-question-circle"></i> پرسش‌های متداول</a>
+	  <br/>
           <a href="#"><i class="fa fa-fw fa-info-circle"></i> درباره ما</a>
+	  <br/>
           <a href="#"><i class="fa fa-fw fa-headphones"></i> تماس با ما</a>
+	  <br/>
           <a href="#"><i class="fa fa-fw fa-arrow-circle-right"></i> خروج از حساب کاربری</a>
   </div>
   <div style="margin-top:200px;padding:15px 15px 500px">
