@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>myFarm</title>
+  <!--FONT AWESOME-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+  
+  /* ////////////////////
+     ////////// CSS Variables
+	     //////////////////// */
+  :root {
+	  --padding: 0.5rem;
+	  --margin-left: 0.5rem;
+	  --smoky-black: #12100e;
+	  --pine-tree: #30321c;
+	  --blue: #2191fb;
+	  --white: #ffffff;
+	  --font-size: 0.8rem;
+  }
+
+  /* ////////////////////
+  ////////// General Styles
+  //////////////////// */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+body {
+	font-family: "Rubik", sans-serif;
+}
+
+/* ////////////////////
+////////// Main container
+//////////////////// */
+.container {
+	width: auto;
+	min-height: 100vh;
+	transition: margin-left 0.3s linear;
+}
+
+/* ////////////////////
+////////// Sidebar Menu
+//////////////////// */
+.sidebar {
+	width: 0;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	z-index: 1;
+	background-color: var(--pine-tree);
+	transition: width 0.3s linear;
+}
+
+.sidebar_header {
+	width: 100%;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: var(--white);
+}
+
+.sidebar_menu {
+	width: 100%;
+	height: 100%;
+}
+
+.sidebar_item {
+	width: 100%;
+	padding: var(--padding);
+	font-size: var(--font-size);
+	background-color: var(--pine-tree);
+	color: #fff;
+	display: block;
+	position: relative;
+	white-space: nowrap;
+}
+
+.sidebar_item::before {
+	content: "";
+	width: 70%;
+	height: 4px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: var(--blue);
+	transform: scale(0);
+	transform-origin: left;
+	transition: all 0.3s linear;
+}
+
+.sidebar_item:hover::before {
+	transform: scale(1);
+}
+
+.sidebar_item:hover {
+	background-color: #fff;
+	color: var(--smoky-black);
+	transition: all 0.3s linear;
+}
+
+.sidebar_item:active {
+	transform: translateY(0.2rem);
+}
+
+.sidebar_icon {
+	width: 20%;
+	display: inline-block;
+	text-align: center;
+}
+
+.sidebar_item h4 {
+	width: 80%;
+	display: inline-block;
+}
+
+.active {
+	width: 150px;
+}
+.active_margin_left {
+	margin-left: 150px;
+}
+
+/* ////////////////////
+////////// HEADER
+//////////////////// */
+.header {
+	width: 100%;
+	height: 50px;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	background-color: var(--pine-tree);
+}
+
+/* Sidebar Toggle Button */
+.btn-toggle {
+	width: 50px;
+	height: 25px;
+	border: none;
+	border-radius: 2px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: var(--padding);
+	background-color: var(--white);
+	color: var(--blue);
+	margin-left: var(--margin-left);
+	cursor: pointer;
+	transition: all 0.3s linear;
+}
+.btn-toggle:active {
+	box-shadow: 2px 2px 5px #fff;
+	outline: none;
+}
+
+/* ////////////////////
+////////// Main content
+//////////////////// */
+.content {
+	height: calc(100vh - 50px);
+	background-color: var(--white);
+	padding: var(--padding);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+  #header_main {
+    background-color: #7fd4a5; /* Light green background */
+    padding: 50px 10px; /* Some padding */
+    color: white;
+    text-align: center; /* Centered text */
+    font-size: 90px; /* Big font size */
+    font-weight: bold;
+    position: fixed; /* Fixed position - sit on top of the page */
+    top: 0;
+    width: 100%; /* Full width */
+    transition: 0.4s; /* Add a transition effect (when scrolling - and font size is decreased) */
+  }
+  .yellow-div {
+	  background-color:#F9EACD;
+	  padding: 25px;
+	  margin:5px;
+  }
+  </style>
+</head>
+<body style="background-color:#ebebeb;">
+	<div class="sidebar">
+    <div class="sidebar_header">
+	    <a href="#"><h4>نام کاربر</h4></a>
+    </div>
+
+    <div class="sidebar_menu">
+      <a href="#" class="sidebar_item">
+        <div class="sidebar_icon">
+          <i class="fa-solid fa-house"></i>
+        </div>
+        <h4> مزرعه من</h4>
+      </a>
+      <a href="#" class="sidebar_item">
+        <div class="sidebar_icon">
+          <i class="fa-brands fa-shopping-cart"></i>
+        </div>
+        <h4> سفارشات من</h4>
+      </a>
+      <a href="#" class="sidebar_item">
+        <div class="sidebar_icon">
+          <i class="fa-brands fa-tty"></i>
+        </div>
+        <h4> پیام‌های من</h4>
+      </a>
+      <a href="#" class="sidebar_item">
+        <div class="sidebar_icon">
+          <i class="fa-brands fa-credit-card"></i>
+        </div>
+        <h4> مدیریت مالی</h4>
+      </a>
+      <a href="#" class="sidebar_item">
+        <div class="sidebar_icon">
+          <i class="fa-brands fa-bug"></i>
+        </div>
+        <h4> نتایج بیماری‌های هوشمند</h4>
+      </a>
+      <a href="#" class="sidebar_item">
+        <div class="sidebar_icon">
+          <i class="fa-brands fa-hand-paper"></i>
+        </div>
+        <h4> قوانین و مقررات</h4>
+      </a>
+      <a href="#" class="sidebar_item">
+        <div class="sidebar_icon">
+          <i class="fa-brands fa-question-circle"></i>
+        </div>
+        <h4> پرسش‌های متداول</h4>
+      </a>
+      <a href="#" class="sidebar_item">
+        <div class="sidebar_icon">
+          <i class="fa-brands fa-info-circle"></i>
+        </div>
+        <h4> درباره ما</h4>
+      </a>
+      <a href="#" class="sidebar_item">
+        <div class="sidebar_icon">
+          <i class="fa-brands fa-headphones"></i>
+        </div>
+        <h4> تماس با ما</h4>
+      </a>
+      <a href="#" class="sidebar_item">
+        <div class="sidebar_icon">
+          <i class="fa-brands fa-arrow-circle-right"></i>
+        </div>
+        <h4> خروج از حساب کاربری</h4>
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <header class="header">
+	    <a><button class="btn-toggle"><i class="fa-solid fa-bars"></i></button><h1 id="header_main">مزرعه من</h1></a>
+    </header>
+
+    <div class="content">
+	    <div class="yellow-div">
+		    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+	    </div>
+	    <div class="yellow-div">
+		    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+	    </div>
+    </div>
+  </div>
+  <script>
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+      document.getElementById("header_main").style.fontSize = "30px";
+    } else {
+      document.getElementById("header_main").style.fontSize = "90px";
+    }
+  }
+  
+  window.onload = load;
+
+  function load() {
+	  let btnToggle = document.querySelector(".btn-toggle");
+
+	  btnToggle.addEventListener("click", (e) => {
+		  let sidebar = document.querySelector(".sidebar");
+		  let container = document.querySelector(".container");
+		  sidebar.classList.toggle("active");
+		  container.classList.toggle("active_margin_left");
+	  });
+  }
+  </script>
+</body>
+</html>

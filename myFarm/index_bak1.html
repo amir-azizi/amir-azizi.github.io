@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>myFarm</title>
+  <!--FONT AWESOME-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+  
+  *{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+   }
+
+   a{
+    text-decoration: none;
+   }
+
+   ul{
+     list-style: none;
+   }
+
+   button{
+     border: none;
+     outline: none;
+   }
+
+   body{font-family: 'Rubik', sans-serif;}
+
+   .container {
+        width: auto;
+        min-height: 100vh;
+        transition: margin-left 0.3s linear;
+   }
+
+   .content {
+	top: 20px;
+        height: 100px;
+        background-color: var(--white);
+        padding: var(--padding);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+   }
+
+   nav{
+     height: 100vh;
+     background-color: mediumseagreen;
+     width: 200px;
+     padding: 10px;
+     top: 0;
+     z-index: 1;
+     position: relative;
+     overflow-y: hidden;
+     transform: translateX(0);
+     transition: transform .5s ease-in-out;
+   }
+
+   nav.active{
+     transform: translateX(200px);
+   }
+
+   nav .logo{
+     margin: 10px 0 20px;
+   }
+
+   nav .logo a{
+     font-size: 22px;
+     color: white;
+     padding: 10px;
+
+     font-weight: 700;
+
+     display: flex;
+     align-items: center;
+     transition: .3s ease;
+   }
+
+   nav .logo a:hover{
+     padding-right: 20px;
+   }
+
+   nav .logo a i {
+     font-size: 27px;
+     margin-right: 10px;
+     transition: .5s ease-in-out;
+   }
+
+   nav .logo a:hover i {
+     transform: rotate(180deg);
+   }
+
+   nav ul li {
+     padding: 10px;
+     font-weight: 500;
+   }
+
+   nav ul li a{
+     color: #fff;
+     transition: all .5s ease;
+   }
+   nav ul li a:hover{
+     background-color: #fff;
+     color: mediumseagreen;
+     display: block;
+     padding-right: 10px;
+   }
+
+   button{
+     cursor: pointer;
+     border: 1px solid mediumseagreen;
+     color:mediumseagreen;
+     background-color: #fff;
+     padding: 3px 5px;
+     border-radius: 3px;
+
+     position: fixed;
+     top: 10px;
+     right: 10px;
+
+     transform: translateX(-200px);
+     transition: background-color .3s ease, transform .47s ease-in-out;
+   }
+
+   button:hover{
+     background-color: mediumseagreen;
+     color:#fff;
+   }
+
+   button.active{
+     transform: translateX(0);
+   }
+  #header {
+    background-color: #7fd4a5; /* Light green background */
+    padding: 50px 10px; /* Some padding */
+    color: white;
+    text-align: center; /* Centered text */
+    font-size: 90px; /* Big font size */
+    font-weight: bold;
+    position: fixed; /* Fixed position - sit on top of the page */
+    top: 0;
+    width: 100%; /* Full width */
+    transition: 0.4s; /* Add a transition effect (when scrolling - and font size is decreased) */
+  }
+  .yellow-div {
+	  background-color:#F9EACD;
+	  padding: 25px;
+	  margin:5px;
+  }
+  </style>
+</head>
+<body style="background-color:#ebebeb;">
+  <nav class="active">
+      <div class="logo" >
+          <a href="#">
+              نام کاربر
+          </a>
+      </div>
+      <ul>
+
+          <li><a href="#"><i class="fa fa-fw fa-home"></i> مزرعه من</a></li>
+          <li><a href="#"><i class="fa fa-fw fa-shopping-cart"></i> سفارشات من</a></li>
+          <li><a href="#"><i class="fa fa-fw fa-tty"></i> پیام‌های من</a></li>
+          <li><a href="#"><i class="fa fa-fw fa-credit-card"></i> مدیریت مالی</a></li>
+          <li><a href="#"><i class="fa fa-fw fa-bug"></i> نتایج بیماری‌های هوشمند</a></li>
+          <li><a href="#"><i class="fa fa-fw fa-hand-paper"></i> قوانین و مقررات</a></li>
+          <li><a href="#"><i class="fa fa-fw fa-question-circle"></i> پرسش‌های متداول</a></li>
+          <li><a href="#"><i class="fa fa-fw fa-info-circle"></i> درباره ما</a></li>
+          <li><a href="#"><i class="fa fa-fw fa-headphones"></i> تماس با ما</a></li>
+          <li><a href="#"><i class="fa fa-fw fa-arrow-circle-right"></i> خروج از حساب کاربری</a></li>
+      </ul>
+  </nav>
+  <div class="container">
+    <div id="header">
+            <p><button class="active"><i class="fa-solid fa-bars"></i></button><h1 class="header"> مزرعه من</h1></p>
+    </div>
+
+    <div class="content">
+            <div class="yellow-div">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+	    <p></p>
+            <div class="yellow-div">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+    </div>
+    <p>
+    <div class="yellow-div">
+	    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    </div></p>
+    <p>
+    <br/>
+    This is a test
+    </p>
+  </div>
+  <script>
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+      document.getElementById("header").style.fontSize = "30px";
+    } else {
+      document.getElementById("header").style.fontSize = "90px";
+    }
+  }
+  const nav = document.querySelector('nav');
+  const btn = document.querySelector('button');
+
+  btn.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    btn.classList.toggle('active');
+  })
+  </script>
+</body>
+</html>

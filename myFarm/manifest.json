@@ -1,0 +1,22 @@
+{
+  "name": "ممزرعه من",
+  "short_name": "myfarm",
+  "description": "Example of installing a project as a PWA",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "start_url": "/",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "./assets/pyscript-app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/pyscript-app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
