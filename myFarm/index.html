@@ -90,20 +90,68 @@
 
   #header {
     background-color: #7fd4a5; /* Light green background */
-    padding: 50px 10px; /* Some padding */
+    padding: 5% 2%; /* Some padding */
     color: white;
     text-align: center; /* Centered text */
-    font-size: 20vw; /* Big font size */
+    font-size: 12vw; /* Big font size */
     font-weight: bold;
     position: fixed; /* Fixed position - sit on top of the page */
     top: 0;
     width: 100%; /* Full width */
     transition: 0.4s; /* Add a transition effect (when scrolling - and font size is decreased) */
   }
-  .yellow-div {
-	  background-color:#F9EACD;
-	  padding: 25px;
-	  margin:5px;
+  .green-div {
+	  border-radius: 5%;
+	  background-color:#ccffcc;
+	  padding: 5%;
+	  margin:5%;
+  }
+  .magenta-div {
+	  border-radius: 5%;
+	  background-color:#ddccff;
+	  padding: 5%;
+	  margin:5%;
+  }
+  .maroon-div {
+	  border-radius: 2%;
+	  background-color:#FF9494;
+	  padding: 5%;
+	  margin:5%;
+  }
+  .white-div {
+	  border-radius: 2%;
+	  background-color:#ffffff;
+	  margin:2%;
+  }
+  .content {
+        height: calc(100vh - 50px);
+        background-color: var(--white);
+        padding: var(--padding);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  }
+  .float-parent-element {
+	  margin: 1rem;
+	  padding: 2rem 2rem;
+  }
+  .float-child-element {
+	  display: inline-block;
+	  padding: 1rem 1rem;
+	  vertical-align: middle;
+  }
+  /* Three image containers (use 25% for four, and 50% for two, etc) */
+  .column {
+	  float: right;
+	  width: 25%;
+	  padding: 5px;
+  }
+
+  /* Clear floats after image containers */
+  .row::after {
+	  content: "";
+	  clear: both;
+	  display: table;
   }
   </style>
 </head>
@@ -136,17 +184,58 @@
 	  <br/>
           <a href="#"><i class="fa fa-fw fa-arrow-circle-right"></i> خروج از حساب کاربری</a>
   </div>
-  <div style="margin-top:40vw;padding:1vw 1vw 40vw">
-	  <div class="yellow-div">
-		  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  <div style="margin-top:40vw;padding:1vw 1vw 20vw">
+	  <div class="maroon-div">
+		  <img style='vertical-align:middle;width: 25%; height: auto;' src='assets/support.png'>
+		  <div style='vertical-align:middle; display:inline; font-size: 3vw;color:#b33c00;font-weight: bold;'>
+			  «مشاوره تخصصی»             		  مشاوران ما با دانش به روز دنیا، آماده ارائه خدمات در راستای بهبود کیفیت محصول شما هستند.
+		  </div>
+          </div>
+	  <div class="content">
+		  <div class="green-div">
+			  <img style='vertical-align:middle;width: 25%; height: auto;' src='assets/q&a.png'>
+			  <div style='vertical-align:middle; display:inline; font-size: 3vw;color:#006600;font-weight: bold;'>
+				  پرسش و پاسخ
+			  </div>
+		  </div>
+		  <div class="magenta-div">
+			  <img style='vertical-align:middle;width: 25%; height: auto;' src='assets/recommendation.png'>
+			  <div style='vertical-align:middle; display:inline; font-size: 3vw;color:#3b00b3;font-weight: bold;'>
+				  توصیه عمومی
+			  </div>
+		  </div>
 	  </div>
-	  <p></p>
-	  <div class="yellow-div">
-		  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+	  <div class="white-div">
+		  <div style='text-align:right;color:#4d2600;font-size: 3vw;font-weight: bold;'> توصیه‌های محاسباتی</div>
+		  <hr text-align: center; width="100%"; size="2"; color="grey";>
+		  <div class="row">
+			  <div class="column">
+				  <img src="assets/carrot.png" alt="Carrot" style="width:100%">
+			  </div>
+			  <div class="column">
+				  <img src="assets/sesame.png" alt="Sesame" style="width:100%">
+			  </div>
+			  <div class="column">
+				  <img src="assets/corn.png" alt="Corn" style="width:100%">
+			  </div>
+			  <div class="column">
+				  <img src="assets/potato.png" alt="Potato" style="width:100%">
+			  </div>
+		  </div>
 	  </div>
-	  <p>
-	  <div class="yellow-div">
-		  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+	  <div class="content">
+		  <div class="white-div">
+			  <div class="column">
+				  <img src="assets/pest_leaf.png" style="width:100%">
+			  </div>
+			  <div style='text-align:middle;color:#4d2600;font-size: 3vw;font-weight: bold;'> توصیه عمومی بیماری‌ها</div>
+		  </div>
+		  <div class="white-div">
+			  <div class="column">
+				  <img src="assets/smart_bug.png" style="width:100%">
+			  </div>
+			  <div style='text-align:middle;color:#4d2600;font-size: 3vw;font-weight: bold;'> کنترل هوشمند بیماری‌ها</div>
+		  </div>
 	  </div>
   </div>
   <script>
@@ -162,7 +251,7 @@
   const btn = document.querySelector('button');
 
   btn.addEventListener('click', () => {
-	  document.getElementById("mySidenav").style.width = "250px";
+	  document.getElementById("mySidenav").style.width = "60%";
   })
   /* Set the width of the side navigation to 0 */
   function closeNav() {
