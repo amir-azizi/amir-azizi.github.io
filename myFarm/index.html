@@ -10,8 +10,6 @@
   @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
   
   *{
-     padding: 0;
-     margin: 0;
      box-sizing: border-box;
    }
 
@@ -104,30 +102,35 @@
 	  border-radius: 5%;
 	  background-color:#ccffcc;
 	  padding: 5%;
-	  margin:5%;
+	  margin-left:5%;
+	  margin-right:5%;
   }
   .magenta-div {
 	  border-radius: 5%;
 	  background-color:#ddccff;
 	  padding: 5%;
-	  margin:5%;
+	  margin-left:5%;
+	  margin-right:5%;
   }
   .maroon-div {
 	  border-radius: 2%;
 	  background-color:#FF9494;
 	  padding: 5%;
-	  margin:5%;
+	  margin-left:5%;
+	  margin-right:5%;
   }
   .white-div {
 	  border-radius: 2%;
 	  background-color:#ffffff;
-	  margin:2%;
+	  margin-left:5%;
+	  margin-right:5%;
   }
   .content {
         height: calc(100vh - 50px);
         background-color: var(--white);
         padding: var(--padding);
-        display: flex;
+        /*display: flex;*/
+	display: inline-block;
         justify-content: center;
         align-items: center;
   }
@@ -144,7 +147,7 @@
   .column {
 	  float: right;
 	  width: 25%;
-	  padding: 5px;
+	  padding: 5%;
   }
 
   /* Clear floats after image containers */
@@ -152,6 +155,24 @@
 	  content: "";
 	  clear: both;
 	  display: table;
+  }
+  .footer {
+	  position: fixed;
+	  left: 0;
+	  bottom: 0;
+	  width: 100%;
+	  color: white;
+	  text-align: center;
+  }
+  .footer-icon {
+	  position: fixed;
+	  left: 0;
+	  bottom: 0;
+	  width: 100%;
+	  color: white;
+	  text-align: center;
+	  display: grid;
+	  grid-template-columns: 1fr 1fr 1fr;
   }
   </style>
 </head>
@@ -184,25 +205,25 @@
 	  <br/>
           <a href="#"><i class="fa fa-fw fa-arrow-circle-right"></i> خروج از حساب کاربری</a>
   </div>
-  <div style="margin-top:40vw;padding:1vw 1vw 20vw">
+  <div style="margin-top:30vw;margin-bottom:0;padding:1vw 1vw 20vw;font-size: 0;">
 	  <div class="maroon-div">
-		  <img style='vertical-align:middle;width: 25%; height: auto;' src='assets/support.png'>
-		  <div style='vertical-align:middle; display:inline; font-size: 3vw;color:#b33c00;font-weight: bold;'>
-			  «مشاوره تخصصی»             		  مشاوران ما با دانش به روز دنیا، آماده ارائه خدمات در راستای بهبود کیفیت محصول شما هستند.
+		  <div class="column">
+			  <img src="assets/support.png" style="width:85%">
 		  </div>
+		  <div style='text-align:middle;color:#b33c00;font-size: 3vw;font-weight: bold;'> «مشاوره تخصصی»             		  مشاوران ما با دانش به روز دنیا، آماده ارائه خدمات در راستای بهبود کیفیت محصول شما هستند.</div>
           </div>
-	  <div class="content">
+	  <div style="display: grid;grid-template-columns: 1fr 1fr;margin: 5%;">
 		  <div class="green-div">
-			  <img style='vertical-align:middle;width: 25%; height: auto;' src='assets/q&a.png'>
-			  <div style='vertical-align:middle; display:inline; font-size: 3vw;color:#006600;font-weight: bold;'>
-				  پرسش و پاسخ
+			  <div class="column">
+				  <img src="assets/q&a.png" style="width:100%">
 			  </div>
+			  <div style='text-align:middle;color:#006600;font-size: 3vw;font-weight: bold;'> پرسش و پاسخ</div>
 		  </div>
 		  <div class="magenta-div">
-			  <img style='vertical-align:middle;width: 25%; height: auto;' src='assets/recommendation.png'>
-			  <div style='vertical-align:middle; display:inline; font-size: 3vw;color:#3b00b3;font-weight: bold;'>
-				  توصیه عمومی
+			  <div class="column">
+				  <img src="assets/recommendation.png" style="width:100%">
 			  </div>
+			  <div style='text-align:middle;color:#3b00b3;font-size: 3vw;font-weight: bold;'> توصیه عمومی</div>
 		  </div>
 	  </div>
 	  <div class="white-div">
@@ -223,7 +244,7 @@
 			  </div>
 		  </div>
 	  </div>
-	  <div class="content">
+	  <div style="display: grid;grid-template-columns: 1fr 1fr;margin: 5%;">
 		  <div class="white-div">
 			  <div class="column">
 				  <img src="assets/pest_leaf.png" style="width:100%">
@@ -237,6 +258,14 @@
 			  <div style='text-align:middle;color:#4d2600;font-size: 3vw;font-weight: bold;'> کنترل هوشمند بیماری‌ها</div>
 		  </div>
 	  </div>
+  </div>
+  <div class="footer">
+	  <img src="assets/bottom.png" style="width:100%">
+  </div>
+  <div class="footer-icon">
+	  <div><i class="fa fa-fw fa-user-circle"></div>
+	  <div><i class="fa fa-fw fa-shopping-cart"></div>
+	  <div><i class="fa fa-fw fa-home"></div>
   </div>
   <script>
   window.onscroll = function() {scrollFunction()};
