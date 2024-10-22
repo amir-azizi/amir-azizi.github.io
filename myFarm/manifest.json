@@ -1,6 +1,5 @@
 {
-  "name": "ممزرعه من",
-  "short_name": "myfarm",
+  "name": "My Farm",
   "description": "Example of installing a project as a PWA",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
