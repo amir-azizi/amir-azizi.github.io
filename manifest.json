@@ -1,6 +1,7 @@
 {
   "name": "PAT",
-  "description": "Example of installing a project as a PWA",
+  "short_name": "PAT",
+  "description": "PAT control center",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "start_url": "/",
