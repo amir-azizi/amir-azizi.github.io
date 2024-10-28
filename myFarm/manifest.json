@@ -1,6 +1,7 @@
 {
   "name": "My Farm",
-  "description": "Example of installing a project as a PWA",
+  "short_name": "myFarm",
+  "description": "We're are here to make your field and product great",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "start_url": "/",
