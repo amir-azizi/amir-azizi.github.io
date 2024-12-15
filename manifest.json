@@ -1,22 +1,15 @@
 {
-  "name": "PAT",
-  "short_name": "PAT",
-  "description": "PAT control center",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "name": "MyFarm",
+  "description": "Farm management software",
+  "display": "standalone",
   "start_url": "/",
-  "display": "fullscreen",
   "icons": [
     {
-      "src": "./assets/pyscript-app-icon.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "./assets/pyscript-app-icon.png",
+      "src": "icons/myIcon512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ]
 }
+
