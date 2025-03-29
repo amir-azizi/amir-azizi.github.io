@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAT</title>
+  <script type="module" src="/pyscript/core.js"></script>
+  <link rel="stylesheet" href="/pyscript/core.css">
+  <link rel="manifest" href="./manifest.json">
+  <!-- for splashscreen -->
+  <style>
+  #loading { outline: none; border: none; background: transparent }
+  </style>
+  <script type="module">
+    const loading = document.getElementById('loading');
+    addEventListener('py:ready', () => loading.close());
+    loading.showModal();
+  </script>
+  <!-- bokeh scripts -->
+  <script type="text/javascript" src="/pyscript/bokeh-3.4.1.min.js"></script>
+  <script type="text/javascript" src="/pyscript/bokeh-gl-3.4.1.min.js"></script>
+  <script type="text/javascript">
+    Bokeh.set_log_level("info");
+  </script>
+</head>
+<body style="background-color:#F9EACD;">
+  <dialog id="loading">
+    <h1>Loading...</h1>
+  </dialog>
+  <h1 style="text-align: center">
+    مرکز کنترل iPlant
+  </h1>
+  <br />
+  <br />
+  <br />
+  <div style="text-align: center">
+    <h2>شرایط فعال سازی ایستگاه‌های رله</h2>
+    <br>
+    <h3>ایستگاه‌های فعال:</h3>
+    <p id="relayIDs"></p>
+    <br>
+    <a>۱-الف) اگر در حسگر <select id="sensor-select1"><option value="">--انتخاب حسگر</option></select>پارامتر <select id="parameter-select1"><option value="">--انتخاب پارامتر</option></select>، <select id="LessMore1"><option value="">کمتر از</option><option value="">بیشتر از</option></select> مقدار <input type="text" id="thrsValue1"/> شد، رله شماره ۱ فعال شود.<button id="calcCumul1">ثبت</button> </a>
+    <br>
+    <a>۱-ب) اگر در حسگر <select id="sensor-select2"><option value="">--انتخاب حسگر</option></select>پارامتر <select id="parameter-select2"><option value="">--انتخاب پارامتر</option></select>، <select id="LessMore2"><option value="">کمتر از</option><option value="">بیشتر از</option></select> مقدار <input type="text" id="thrsValue2"/> شد، رله شماره ۱ خاموش شود.<button id="calcCumul2">ثبت</button> </a>
+    <br>
+    <a>۲-الف) اگر در حسگر <select id="sensor-select3"><option value="">--انتخاب حسگر</option></select>پارامتر <select id="parameter-select3"><option value="">--انتخاب پارامتر</option></select>، <select id="LessMore3"><option value="">کمتر از</option><option value="">بیشتر از</option></select> مقدار <input type="text" id="thrsValue3"/> شد، رله شماره ۲ فعال شود.<button id="calcCumul3">ثبت</button> </a>
+    <br>
+    <a>۲-ب) اگر در حسگر <select id="sensor-select4"><option value="">--انتخاب حسگر</option></select>پارامتر <select id="parameter-select4"><option value="">--انتخاب پارامتر</option></select>، <select id="LessMore4"><option value="">کمتر از</option><option value="">بیشتر از</option></select> مقدار <input type="text" id="thrsValue4"/> شد، رله شماره ۲ خاموش شود.<button id="calcCumul4">ثبت</button> </a>
+  </div>
+  <script type="py" src="./relay.py"></script>
+  <script defer src="./pwa.js"></script>
+</body>
+</html>

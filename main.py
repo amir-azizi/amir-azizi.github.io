@@ -11,13 +11,13 @@ from pyscript import display, when, document, window
 
 base_url='https://docs.google.com/spreadsheets/d/'
 
-URL_sensorNames_aff = '/gviz/tq?tqx=out:csv;outFileName:data&sheet=sensorNames&range=A:B'
-URL_CSV_aff = '/gviz/tq?tqx=out:csv;outFileName:data&sheet=dataLogs&range=A:J'
+URL_sensorNames_aff = '/gviz/tq?tqx=out:csv;outFileName:data&sheet=sensorName&range=A:B'
+URL_CSV_aff = '/gviz/tq?tqx=out:csv;outFileName:data&sheet=dataLogss&range=A:J'
 URL_warn_aff = '/gviz/tq?tqx=out:csv;outFileName:data&sheet=warnings&range=A1'
 URL_login = '/gviz/tq?tqx=out:csv;outFileName:data&sheet=warnings&range=A20'
-URL_lastEntry_aff = "/gviz/tq?tqx=out:csv;outFileName:data&sheet=last_entry&range=A:K"
+URL_lastEntry_aff = "/gviz/tq?tqx=out:csv;outFileName:data&sheet=last_entries&range=A:K"
 
-page_ID = window.location.search[1:]
+page_ID = window.location.search[1:].split(',')[0]
 
 URL_sensorNames=base_url+page_ID+URL_sensorNames_aff
 URL_CSV=base_url+page_ID+URL_CSV_aff
@@ -41,6 +41,15 @@ for x in names_data.Name:
     sel_item.textContent = x
     sensor_select_parent.appendChild(sel_item)
 
+@when("click", "#emergency")
+def clicker(event):
+    global page_ID
+    document.location.href="emergency.html?"+page_ID
+
+@when("click", "#relay")
+def clickss(event):
+    global page_ID
+    document.location.href="relay.html?"+page_ID
 
 @when("click", "#update")
 def click_handler(event):
