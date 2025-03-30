@@ -45,7 +45,7 @@ for x in names_data.Name:
 @when("click", "#emergency")
 def clicker(event):
     global page_ID
-    document.location.href="emergency.html?"+page_ID
+    document.location.href="emergency.html?"+page_ID+","+user_ID
 
 @when("click", "#relay")
 def clickss(event):

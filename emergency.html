@@ -4,55 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PAT</title>
-  <script type="module" src="/pyscript/core.js"></script>
-  <link rel="stylesheet" href="/pyscript/core.css">
   <link rel="manifest" href="./manifest.json">
   <link rel="shortcut icon" href="#">
   <!-- for splashscreen -->
   <style>
   #loading { outline: none; border: none; background: transparent }
   </style>
-  <script type="module">
-    const loading = document.getElementById('loading');
-    addEventListener('py:ready', () => loading.close());
-    loading.showModal();
-  </script>
   <!-- bokeh scripts -->
-  <script type="text/javascript" src="/pyscript/bokeh-3.4.1.min.js"></script>
-  <script type="text/javascript" src="/pyscript/bokeh-gl-3.4.1.min.js"></script>
-  <script type="text/javascript">
-    Bokeh.set_log_level("info");
-  </script>
 </head>
 <body style="background-color:#F9EACD;">
   <dialog id="loading">
     <h1>Loading...</h1>
   </dialog>
-  <py-config>
-    packages = ["pandas", "bokeh", "xyzservices", "requests"]
-  </py-config>
   <h1 style="text-align: center">
     مرکز کنترل iPlant
   </h1>
   <br />
   <br />
   <br />
-  <div style="background: pink; color: red; text-align: center">
+  <div style="background: palegreen; color: darkgreen; text-align: center">
     <h3>
-      ﺎﺨﻃﺍﺮﻫﺍ
+      تنظیم سیستم پیام واتساپ
     </h3>
+    <ul>
+	    <li>ابتدا این شماره را به لیست کانتکت‌های خود اظافه کنید: +34644646089</li>
+	    <li>این پیام انگلیسی را در واتستپ به این کانتکت جدید بفرستید: I allow callmebot to send me messages</li>
+	    <li>ظرف چند دقیقه در جواب این پیام شما کلید ای‌پی‌آی (apikey) فرستاده می‌شود</li>
+	    <li>این شماره را در فیلد متناظر در لینک زیر وارد نمایید:</li>
+    </ul>
+    <a href="/test" class="dynamic-link" target="_blank">تنظیم اخطار</a>
     <p id="dbScreen">
     </p>
   </div>
-  <div style="text-align: center">
-    <h2>تنظیم پیامک‌های اخطار</h2>
-    <br>
-    <br>
-    <p id="warn1">در حال دریافت</p><button id="setWarn1">ویرایش</button>
-    <br>
-    <br>
-  </div>
-  <script type="py" src="./emergency.py"></script>
+  <script>
+	  document.addEventListener('DOMContentLoaded', function() {
+		  const queryString = window.location.search.slice(1);
+		  const page_ID = queryString.split(',')[0]
+		  const parameter = queryString.split(',')[1]
+		  if(parameter) {
+			  const links = document.querySelectorAll('.dynamic-link');
+			  links.forEach(link => {
+				  const currentHref = link.getAttribute('href');
+				  if (parameter==0) {
+					  const newHref = `https://docs.google.com/spreadsheets/d/${page_ID}/edit?gid=722274996#gid=722274996`;
+					  link.setAttribute('href', newHref);
+				  } else if (parameter==1) {
+					  const newHref = `https://docs.google.com/spreadsheets/d/${page_ID}/edit?gid=1702125942#gid=1702125942`;
+					  link.setAttribute('href', newHref);
+				  } else {
+					  const newHref = `https://docs.google.com/spreadsheets/d/${page_ID}/edit?gid=433752488#gid=433752488`;
+					  link.setAttribute('href', newHref);
+				  }
+			  });
+		  }
+	  });
+  </script>
   <script defer src="./pwa.js"></script>
 </body>
 </html>
