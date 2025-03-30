@@ -18,7 +18,7 @@ URL_login = '/gviz/tq?tqx=out:csv;outFileName:data&sheet=warnings&range=A20'
 URL_lastEntry_aff = "/gviz/tq?tqx=out:csv;outFileName:data&sheet=last_entries&range=A:K"
 
 page_ID = window.location.search[1:].split(',')[0]
-user_ID = window.location.search[1:].split(',')[1]
+user_ID = int(window.location.search[1:].split(',')[1])
 
 URL_sensorNames=base_url+page_ID+URL_sensorNames_aff
 URL_CSV=base_url+page_ID+URL_CSV_aff
@@ -51,7 +51,7 @@ def clicker(event):
 def clickss(event):
     global page_ID
     global user_ID
-    if user_ID<=3:
+    if user_ID<3:
         window.alert("هیچ دستگاه رله‌ای تعریف نشده است.")
     else:
         document.location.href="relay.html?"+page_ID
