@@ -4,26 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PAT</title>
-  <script type="module" src="/pyscript/core.js"></script>
-  <link rel="stylesheet" href="/pyscript/core.css">
   <link rel="manifest" href="./manifest.json">
-  <!-- for splashscreen -->
+  <link rel="shortcut icon" href="#">
   <style>
-  #loading { outline: none; border: none; background: transparent }
-  </style>
-  <script type="module">
-    const loading = document.getElementById('loading');
-    addEventListener('py:ready', () => loading.close());
-    loading.showModal();
-  </script>
-  <!-- bokeh scripts -->
-  <script type="text/javascript" src="/pyscript/bokeh-3.4.1.min.js"></script>
-  <script type="text/javascript" src="/pyscript/bokeh-gl-3.4.1.min.js"></script>
-  <script type="text/javascript">
-    Bokeh.set_log_level("info");
-  </script>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color:#F9EACD;
+    }
+    .form-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .form-group {
+        width: 45%;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+    }
+    .form-group h2 {
+        margin-top: 0;
+        font-size: 1.5em;
+    }
+    .form-item {
+        margin-bottom: 15px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
 </head>
-<body style="background-color:#F9EACD;">
+<body>
+<!-- <body style="background-color:#F9EACD;"> -->
   <dialog id="loading">
     <h1>Loading...</h1>
   </dialog>
@@ -31,23 +65,54 @@
     مرکز کنترل iPlant
   </h1>
   <br />
+  <h2>شرایط فعال سازی ایستگاه‌های رله</h2>
+  <br>
   <br />
   <br />
-  <div style="text-align: center">
-    <h2>شرایط فعال سازی ایستگاه‌های رله</h2>
-    <br>
-    <h3>ایستگاه‌های فعال:</h3>
-    <p id="relayIDs"></p>
-    <br>
-    <a>۱-الف) اگر در حسگر <select id="sensor-select1"><option value="">--انتخاب حسگر</option></select>پارامتر <select id="parameter-select1"><option value="">--انتخاب پارامتر</option></select>، <select id="LessMore1"><option value="">کمتر از</option><option value="">بیشتر از</option></select> مقدار <input type="text" id="thrsValue1"/> شد، رله شماره ۱ فعال شود.<button id="calcCumul1">ثبت</button> </a>
-    <br>
-    <a>۱-ب) اگر در حسگر <select id="sensor-select2"><option value="">--انتخاب حسگر</option></select>پارامتر <select id="parameter-select2"><option value="">--انتخاب پارامتر</option></select>، <select id="LessMore2"><option value="">کمتر از</option><option value="">بیشتر از</option></select> مقدار <input type="text" id="thrsValue2"/> شد، رله شماره ۱ خاموش شود.<button id="calcCumul2">ثبت</button> </a>
-    <br>
-    <a>۲-الف) اگر در حسگر <select id="sensor-select3"><option value="">--انتخاب حسگر</option></select>پارامتر <select id="parameter-select3"><option value="">--انتخاب پارامتر</option></select>، <select id="LessMore3"><option value="">کمتر از</option><option value="">بیشتر از</option></select> مقدار <input type="text" id="thrsValue3"/> شد، رله شماره ۲ فعال شود.<button id="calcCumul3">ثبت</button> </a>
-    <br>
-    <a>۲-ب) اگر در حسگر <select id="sensor-select4"><option value="">--انتخاب حسگر</option></select>پارامتر <select id="parameter-select4"><option value="">--انتخاب پارامتر</option></select>، <select id="LessMore4"><option value="">کمتر از</option><option value="">بیشتر از</option></select> مقدار <input type="text" id="thrsValue4"/> شد، رله شماره ۲ خاموش شود.<button id="calcCumul4">ثبت</button> </a>
+  <div class="form-container">
+    <!-- Group 1: Relay 1 -->
+    <div class="form-group">
+        <h2>رله شماره ۱</h2>
+        <form id="personalInfoForm">
+          <a href="/test" class="dynamic-link1" target="_blank">تنظیم رله</a>
+        </form>
+    </div>
+    <!-- Group 1: Relay 2 -->
+    <div class="form-group">
+      <h2>رله شماره ۲</h2>
+      <form id="personalInfoForm">
+        <a href="/test" class="dynamic-link2" target="_blank">تنظیم رله</a>
+      </form>
   </div>
-  <script type="py" src="./relay.py"></script>
+  <script>
+	  document.addEventListener('DOMContentLoaded', function() {
+		  const queryString = window.location.search.slice(1);
+		  const page_ID = queryString.split(',')[0]
+		  const parameter = queryString.split(',')[1]
+		  if(parameter) {
+			  const links = document.querySelectorAll('.dynamic-link1');
+			  links.forEach(link => {
+				  const currentHref = link.getAttribute('href');
+				  if (parameter==3) {
+					  const newHref = `https://docs.google.com/spreadsheets/d/${page_ID}/edit?gid=1208001073#gid=1208001073`;
+					  link.setAttribute('href', newHref);
+				  } else {
+            window.alert("برای این حساب دسترسی به رله تعریف نشده است.");
+          }
+			  });
+        const links2 = document.querySelectorAll('.dynamic-link2');
+			  links2.forEach(link => {
+				  const currentHref = link.getAttribute('href');
+				  if (parameter==3) {
+					  const newHref = `https://docs.google.com/spreadsheets/d/${page_ID}/edit?gid=1578227042#gid=1578227042`;
+					  link.setAttribute('href', newHref);
+				  } else {
+            window.alert("برای این حساب دسترسی به رله تعریف نشده است.");
+          }
+			  });
+		  }
+	  });
+  </script>
   <script defer src="./pwa.js"></script>
 </body>
 </html>
